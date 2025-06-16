@@ -9,6 +9,10 @@ venv/
 *.h5
 *.pkl
 *.pyd
+*.dll
+__pycache__/
+node_modules/
+backend/venv/
 
 # Ignore system files
 .DS_Store
