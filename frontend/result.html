@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DeepGoat - Prediction Result</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    .card {
+      background-color: #ffffff;
+      border: 2px solid #a5d6a7;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(46, 125, 50, 0.15);
+      padding: 30px;
+      max-width: 600px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #2e7d32;
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    .result {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    .highlight {
+      color: #2e7d32;
+      font-weight: bold;
+    }
+
+    .back-btn {
+      margin-top: 25px;
+      padding: 10px 20px;
+      background-color: #2e7d32;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .back-btn:hover {
+      background-color: #1b5e20;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>🧬 Prediction Result</h1>
+    <div class="result">
+      <p>🦠 Disease Detected: <span class="highlight">Footrot</span></p>
+      <p>📊 Confidence: <span class="highlight">87.4%</span></p>
+      <p>💊 Suggested Medicine: <span class="highlight">Clean hooves, apply topical antibiotics like Zinc sulfate, and isolate affected goats.</span></p>
+    </div>
+
+    <button class="back-btn" onclick="window.location.href='index.html'">🔙 Go Back</button>
+  </div>
+</body>
+</html>
