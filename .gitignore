@@ -1,0 +1,23 @@
+# Ignore Python virtual environment
+venv/
+
+# Ignore compiled files and logs
+*.pyc
+*.log
+
+# Ignore model files over 100MB (not enforced but for clarity)
+*.h5
+*.pkl
+*.pyd
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+__pycache__/
+
+# Ignore frontend build outputs
+node_modules/
+dist/
+build/
+venv/
+*.h5

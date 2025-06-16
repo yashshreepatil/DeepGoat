@@ -1,0 +1,65 @@
+
+  body {
+    background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+    font-family: 'Segoe UI', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .card {
+    padding: 30px;
+    max-width: 500px;
+    width: 100%;
+    border-radius: 20px;
+    background-color: #fff;
+    border: 2px solid #a5d6a7;
+    box-shadow: 0 10px 25px rgba(46, 125, 50, 0.15);
+  }
+
+  .file-input {
+    margin-bottom: 20px;
+  }
+
+  .btn-custom {
+    background-color: #2e7d32;
+    color: #fff;
+    border: none;
+  }
+
+  .btn-custom:hover {
+    background-color: #1b5e20;
+  }
+
+  #result p {
+    margin: 8px 0;
+  }
+
+  #preview {
+    max-width: 100%;
+    margin-top: 15px;
+    border-radius: 10px;
+    display: none;
+    border: 1px solid #2e7d32;
+  }
+
+  h2 {
+    color: #2e7d32;
+  }
+  .btn-custom {
+    background-color: #2e7d32;  /* Green */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-custom:hover {
+    background-color: #1b5e20;  /* Darker green on hover */
+  }
+  
+

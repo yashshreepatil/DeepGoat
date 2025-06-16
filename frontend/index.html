@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DeepGoat - Disease Predictor</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+  <div class="card text-center">
+    <h2 class="mb-4">🐐 DeepGoat Disease Predictor</h2>
+
+    <input type="file" class="form-control file-input" id="imageInput" accept="image/*" onchange="previewImage()">
+    <img id="preview" src="#" alt="Image Preview">
+
+    <button class="btn btn-primary mt-3" onclick="uploadImage()">
+      <i class="fas fa-stethoscope"></i> Predict Disease
+    </button>
+
+    <div class="output mt-4" id="result"></div>
+  </div>
+
+  <script>
+    const medicineMap = {
+  "Healthy": "🟢 No medicine needed. Goat is healthy.",
+  "Anthrax": "💉 Administer Penicillin or Oxytetracycline immediately. Notify a vet.",
+  "CLA": "💊 Use long-acting antibiotics like Rifampin and isolate the infected goat.",
+  "CCPP": "💉 Treat with Tylosin or Oxytetracycline. Ensure supportive care.",
+  "Ringworm": "🧴 Apply antifungal ointment (Clotrimazole). Disinfect housing.",
+  "Footrot": "🦶 Soak feet in zinc sulfate or copper sulfate solution. Use Penicillin if severe."
+};
+
+
+    function previewImage() {
+      const input = document.getElementById("imageInput");
+      const preview = document.getElementById("preview");
+      const file = input.files[0];
+
+      if (file) {
+        preview.src = URL.createObjectURL(file);
+        preview.style.display = 'block';
+      } else {
+        preview.style.display = 'none';
+      }
+    }
+
+    function uploadImage() {
+      const input = document.getElementById("imageInput");
+      const result = document.getElementById("result");
+
+      if (!input.files[0]) {
+        result.innerHTML = "<span class='text-danger'>⚠️ Please upload an image first.</span>";
+        return;
+      }
+
+      const formData = new FormData();
+      formData.append("image", input.files[0]);
+
+      fetch("http://127.0.0.1:5000/predict", {
+        method: "POST",
+        body: formData
+      })
+      .then(response => response.json())
+      .then(data => {
+        const { prediction, confidence } = data;
+        const medicine = medicineMap[prediction] || "No suggestion available.";
+        result.innerHTML = `
+          <p><strong>🦠 Predicted Disease:</strong> ${prediction}</p>
+          <p><strong>📊 Confidence:</strong> ${confidence}%</p>
+          <p><strong>💊 Recommendation:</strong> ${medicine}</p>
+        `;
+      })
+      .catch(error => {
+        console.error("Error:", error);
+        result.innerHTML = "<span class='text-danger'>❌ Something went wrong during prediction.</span>";
+      });
+    }
+  </script>
+
+</body>
+</html>
